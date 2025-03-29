@@ -1,14 +1,17 @@
 const connectApi = async () => {
   const res = await fetch("https://fortnite-api.com/v2/shop");
   const data = await res.json();
+  
 
   const { date } = await data.data; //accede a la fecha de la tienda
+  const {vbuckIcon} = await data.data
+ 
   dateShop(date);
 
   const { entries } = await data.data; //accede al arreglo de todos los items
   console.log(entries);
 
-  drawBundleCard(entries);
+  drawBundleCard(vbuckIcon, entries);
 };
 
 const dateShop = (update) => {
@@ -27,7 +30,7 @@ const dateShop = (update) => {
   lastUpdate.innerText = `Last update: ${update}`;
 };
 
-const drawBundleCard = (items) => {
+const drawBundleCard = (vBuckIcon, items) => {
   //Imprime solo los bundles de la api
   let bundleShop = [];
   
@@ -39,14 +42,16 @@ const drawBundleCard = (items) => {
     }
   });
 
-  shop.innerHTML=" "
+  shop.innerHTML= " "
   bundleShop.forEach((i) => {
     console.log(i)
     const bundleCard = document.createElement("article");
     bundleCard.classList.add("bundleCard");
     bundleCard.innerHTML = `
     <img src="${i.bundle.image}" alt="bundle Fortnite">
-    <h3 id="fortnite-name"> ${i.bundle.name}</h3>
+    <h3 id="fortnite-bundle-name"> ${i.bundle.name}</h3>
+    <h3 id="fortnite-bundle-price"> ${i.finalPrice} <img id= "vBucks" src="${vBuckIcon}"> </h3>
+    
   `;
   shop.appendChild(bundleCard)
   });
