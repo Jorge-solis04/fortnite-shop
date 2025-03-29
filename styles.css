@@ -1,0 +1,82 @@
+:root {
+  --50: #eff6ff;
+  --100: #dceafd;
+  --200: #c0dafd;
+  --300: #95c4fb;
+  --400: #5fa1f7;
+  --500: #3e80f3;
+  --600: #2961e7;
+  --700: #204dd5;
+  --800: #213fac;
+  --900: #203a88;
+  --950: #182553;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  height: 100vh;
+  background-color: var(--50);
+  text-transform: capitalize;
+}
+
+
+.header {
+  display: flex;
+  background-color: #5fa1f7;
+  color: #eff6ff;
+  width: 500px;
+  margin: 15px auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  
+}
+
+.container-date{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  
+}
+
+.container-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--600);
+  width: 700px;
+  justify-content: space-between;
+  color: var(--100);
+  border-radius: 5px;
+}
+
+.left{
+  margin: 5px 5px ;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right{
+  margin: 5px 5px ;
+  padding: 5px;
+}
+
+.fortnite-card{
+  display: flex;
+  flex-direction: column;
+  background-color: #2961e7;
+
+}
