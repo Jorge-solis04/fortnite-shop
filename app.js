@@ -30,14 +30,30 @@ const dateShop = (update) => {
 const drawBundleCard = (items) => {
   //Imprime solo los bundles de la api
   let bundleShop = [];
+  
 
   //Este for recorre todo el arreglo de items de la api y guarda en otro arreglo solo los que sean bundle
   items.forEach((i) => {
     if (i.bundle) {
-      bundleShop.push(i) 
-    } 
+      bundleShop.push(i);
+    }
   });
 
+  shop.innerHTML=" "
+  bundleShop.forEach((i) => {
+    console.log(i)
+    const bundleCard = document.createElement("article");
+    bundleCard.classList.add("bundleCard");
+    bundleCard.innerHTML = `
+    <img src="${i.bundle.image}" alt="bundle Fortnite">
+    <h3 id="fortnite-name"> ${i.bundle.name}</h3>
+  `;
+  shop.appendChild(bundleCard)
+  });
 };
 
 connectApi();
+
+/*<img src="" alt="">
+
+<h2 id="fortnite-price"></h2>*/
